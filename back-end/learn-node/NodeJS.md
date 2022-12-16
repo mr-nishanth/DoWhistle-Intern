@@ -9,3 +9,10 @@
 | No Filesystem | Filesystem |
 |  ES6 Modules | CommonJS|
 
+
+## Globally Available Objects
+
+- require
+- module
+- exports
+- 
