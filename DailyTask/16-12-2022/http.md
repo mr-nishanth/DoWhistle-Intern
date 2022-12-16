@@ -29,6 +29,7 @@
 
     400 Client Error responses
         - 400 Bad Request
+        - 401 Unauthorized
         - 402 Payment required
         - 403 Forbidden
         - 404 Page Not Found
