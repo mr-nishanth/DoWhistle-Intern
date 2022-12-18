@@ -59,7 +59,7 @@ db.DBConn()
 // insertUserAndChangeTheName()
 
 //================================================================
-
+// Schema Types
 const insertUser = async () => {
     try {
         const user = await User.create({
