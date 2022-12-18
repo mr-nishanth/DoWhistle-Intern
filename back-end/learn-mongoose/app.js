@@ -1,7 +1,10 @@
 require("dotenv").config()
 const Express = require('express');
 const db = require("./config/db")
-const User = require("./model/user.model")
+
+// const User = require("./model/user.model")
+const User = require("./model/user_SchemaType.model")
+
 const app = Express();
 
 const PORT = process.env.PORT || 3500
@@ -57,8 +60,29 @@ db.DBConn()
 
 //================================================================
 
+const insertUser = async () => {
+    try {
+        const user = await User.create({
+            name: "Bond",
+            age: 40,
+            // age:"" // its store as null value 
+            // age: "welcome", // through a error 
 
+            email: "bond@gmail.com",
+            hobbies: ["Hollywood", "Volleyball"],
+            address: {
+                street: "4th gold flood street",
+                pin: 416321
+            }
+        })
+        console.log(user)
+    } catch (error) {
+        console.log(error.message)
+        // console.log(error.errors)
+    }
 
+}
+insertUser()
 
 //================================================================
 

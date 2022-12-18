@@ -1,5 +1,14 @@
 const mongoose = require('mongoose');
 
+
+// const addressSchema = new mongoose.Schema(
+//     {
+//         city: String,
+//         street: String,
+//         pin_code: Number,
+//     }
+// );
+
 // create a user schema for user collection
 const userSchema = new mongoose.Schema({
     name: {
@@ -13,7 +22,7 @@ const userSchema = new mongoose.Schema({
     },
     createdAt: {
         type: Date,
-        default: () => new Date.now()
+        // default: () => new Date.now()
     },
     updatedAt: {
         type: Date,
@@ -29,9 +38,10 @@ const userSchema = new mongoose.Schema({
         city: String,
         street: String,
         pin_code: Number,
-    }
+    },
+    // address:addressSchema
 })
 
-const userModel = mongoose.model('User', userSchema);
+const userModel = mongoose.model('User_schema_type', userSchema);
 
 module.exports = userModel
