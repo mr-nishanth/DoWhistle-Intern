@@ -116,6 +116,16 @@ userSchema.query.byName = function (name) {
 // ---- end of query object -----
 
 
+// ---- Start of Schema virtual -----
+
+userSchema.virtual("namedEmail").get(function () {
+    // `Name : ${this.name} | Email : ${this.email}` this string going to value for namedEmail
+    return `Name : ${this.name} | Email : ${this.email}`
+})
+
+// ---- End  of Schema virtual -----
+
+
 
 const userModel = mongoose.model('User_schema_validation', userSchema);
 

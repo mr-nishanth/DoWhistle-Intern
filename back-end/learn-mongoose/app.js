@@ -269,12 +269,24 @@ const userSchemaQueryObject = async () => {
     }
 }
 
-userSchemaQueryObject()
+// userSchemaQueryObject()
 
 
 //================================================================
+// Schema Virtual
+const schemaVirtual = async () => {
+    try {
+        const user = await User.findById("639e8cf4e3608f23192fb45c")
+        console.log(user)
 
+        console.log(user.namedEmail)
 
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+schemaVirtual()
 
 //================================================================
 
