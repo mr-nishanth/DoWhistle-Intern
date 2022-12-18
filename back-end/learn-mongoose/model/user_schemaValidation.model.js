@@ -46,6 +46,8 @@ const userSchema = new mongoose.Schema({
     },
     bestFriends: {
         type: mongoose.SchemaTypes.ObjectId,
+
+        // used to refer the collection ID
         ref: "user"
     },
     hobbies: {
