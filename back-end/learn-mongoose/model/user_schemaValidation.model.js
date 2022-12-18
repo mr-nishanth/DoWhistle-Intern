@@ -48,7 +48,7 @@ const userSchema = new mongoose.Schema({
         type: mongoose.SchemaTypes.ObjectId,
 
         // used to refer the collection ID
-        ref: "user"
+        ref: "User_schema_validation"
     },
     hobbies: {
         type: [String]

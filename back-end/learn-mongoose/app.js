@@ -146,24 +146,68 @@ schemaValidation()
 
 
 
-const schemaValidation = async () => {
+// const schemaValidation = async () => {
+//     try {
+//         const user = await User.create({
+//             name: "Vasu",
+//             age: 16,
+//             email: "vasu@gmail.com",
+//         })
+//         console.log(user)
+//     } catch (error) {
+//         console.log(error.message)
+//     }
+// }
+// schemaValidation()
+
+
+
+
+//================================================================
+// Query methods
+
+// https://mongoosejs.com/docs/queries.html
+// https://mongoosejs.com/docs/tutorials/lean.html
+
+const queryMethods = async () => {
     try {
-        const user = await User.create({
-            name: "Vasu",
-            age: 16,
-            email: "vasu@gmail.com",
-        })
+        // const user = await User.findById("639e8c08d9cc8419d2863a20")
+        // const user = await User.findOne() // return first document in array []
+
+        // const user = await User.find({ name: "Sandhya" })
+
+
+
+        // const user = await User.find({ name: "Sandhya" }).lean()
+
+
+        // const user = await User.find({ name: "Sandhya" }).lean().select("-email")
+
+        // const user = await User.find({ name: "Sandhya" }).lean().select("email")
+
+        // exists , if specified value is present return the ID ,else null
+        // const user = await User.exists({ name: "Yalini" }) // null 
+        // const user = await User.exists({ name: "yalini" }) // 639e8c08d9cc8419d2863a20
+
+
+        // Where and equals function 
+        // const user = await User.where("name").equals("yalini")
+        // const user = await User.where({ name: "Hari" })
+
+        // const user = await User.where("age").gt("10").lt("20")
+        // const user = await User.where("age").gt(10).lt(20)
+        // const user = await User.where("age").gt(10).lt(20).limit(1)
+
+        // populate , get the related document from specified document
+        const user = await User.where("id").equals("639e8c08d9cc8419d2863a20").populate("bestFriends").limit(3)
+
         console.log(user)
     } catch (error) {
         console.log(error.message)
     }
 }
-schemaValidation()
 
-
-
-//================================================================
-
+queryMethods()
 
 
 
