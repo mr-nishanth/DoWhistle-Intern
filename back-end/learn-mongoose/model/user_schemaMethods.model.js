@@ -125,6 +125,17 @@ userSchema.virtual("namedEmail").get(function () {
 
 // ---- End  of Schema virtual -----
 
+// ---- start  of Schema middleware -----
+
+userSchema.pre("save", function (next) {
+    this.name = `Mr. ${this.name}`
+    next();
+})
+
+
+
+// ---- End  of Schema middleware -----
+
 
 
 const userModel = mongoose.model('User_schema_validation', userSchema);

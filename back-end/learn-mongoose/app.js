@@ -286,11 +286,27 @@ const schemaVirtual = async () => {
     }
 }
 
-schemaVirtual()
+// schemaVirtual()
 
 //================================================================
+// Schema middleware
+const schemaMiddleware = async () => {
+    try {
+        const user = await User.findById("639e8cf4e3608f23192fb45c")
+        console.log(user)
+        user.name = "Nishanth"
 
+        // here before save the user document into the database 
+        // the [pre middleware] added prefix Mr in every document
+        // this [pre middleware] is best for validation the data before stored in the database
+        await user.save(); // NOTE: the save method return the promise , so await is must
+        console.log(user)
+    } catch (error) {
+        console.log(error.message)
+    }
+}
 
+schemaMiddleware()
 
 
 
