@@ -132,6 +132,13 @@ userSchema.pre("save", function (next) {
     next();
 })
 
+// In post middleware we can't use this keyword because the document was already saved
+// Here we get document(docs) for access the document data
+userSchema.post("save", function (docs, next) {
+    this.name = `Mr. ${docs.name} Modified`
+    next();
+})
+
 
 
 // ---- End  of Schema middleware -----
