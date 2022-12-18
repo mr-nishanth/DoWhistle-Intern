@@ -3,7 +3,8 @@ const Express = require('express');
 const db = require("./config/db")
 
 // const User = require("./model/user.model")
-const User = require("./model/user_SchemaType.model")
+// const User = require("./model/user_SchemaType.model")
+const User = require("./model/user_schemaValidation.model")
 
 const app = Express();
 
@@ -60,6 +61,7 @@ db.DBConn()
 
 //================================================================
 // Schema Types
+/*
 const insertUser = async () => {
     try {
         const user = await User.create({
@@ -83,10 +85,63 @@ const insertUser = async () => {
 
 }
 insertUser()
+*/
 
 //================================================================
+// Schema validation
+
+/*
+const schemaValidation = async () => {
+    try {
+        const user = await User.create({
+            name: "Muthu",
+            age: 35
+        })
+        console.log(user)
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+schemaValidation() // User_schema_validation validation failed: email: Path `email` is required.
+
+*/
+
+/*
+const schemaValidation = async () => {
+    try {
+        const user = await User.create({
+            name: "Muthu",
+            age: 35,
+            email: "muthu@gmail.com"
+        })
+        console.log(user)
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+schemaValidation()
+*/
+// E11000 duplicate key error collection:
+// learn-mongoose.user_schema_validations index: email_1 dup key:
+// { email: "muthu@gmail.com" }
+// Here, I tried to enter the same email twice, but it didn't work , because in scheme validation I provide unique email (unique true)
 
 
+
+const schemaValidation = async () => {
+    try {
+        const user = await User.create({
+            name: "Nisha",
+            age: 21,
+            email: "Nisha@gmail.com"
+        })
+        console.log(user)
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+schemaValidation()
 
 
 //================================================================
