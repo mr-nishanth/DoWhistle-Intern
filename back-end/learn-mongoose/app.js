@@ -129,12 +129,29 @@ schemaValidation()
 
 
 
+// const schemaValidation = async (time) => {
+//     try {
+//         const user = await User.create({
+//             name: "Vasu",
+//             age: 16,
+//             email: "vasu@gmail.com",
+//             createdAt: new Date(time).toDateString()
+//         })
+//         console.log(user)
+//     } catch (error) {
+//         console.log(error.message)
+//     }
+// }
+// schemaValidation("2022-12-18")
+
+
+
 const schemaValidation = async () => {
     try {
         const user = await User.create({
-            name: "Nisha",
-            age: 21,
-            email: "Nisha@gmail.com"
+            name: "Vasu",
+            age: 16,
+            email: "vasu@gmail.com",
         })
         console.log(user)
     } catch (error) {
@@ -142,6 +159,7 @@ const schemaValidation = async () => {
     }
 }
 schemaValidation()
+
 
 
 //================================================================
